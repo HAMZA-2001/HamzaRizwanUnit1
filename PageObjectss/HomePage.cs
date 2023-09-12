@@ -12,5 +12,6 @@ namespace HamzaTestAutomationFramework.PageObjectss
         public IWebElement UserNameInputBox => DriverHelper.Driver.FindElement(By.Id("user-name"));
         public IWebElement PasswordInputBox => DriverHelper.Driver.FindElement(By.Id("password"));
         public IWebElement LogInButton => DriverHelper.Driver.FindElement(By.Id("login-button"));
+        public IWebElement Errormessage => DriverHelper.Driver.FindElement(By.XPath("//h3[@data-test='error']"));
     }
 }

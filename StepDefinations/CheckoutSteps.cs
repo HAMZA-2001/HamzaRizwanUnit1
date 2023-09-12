@@ -6,19 +6,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using static System.Net.WebRequestMethods;
 
 namespace HamzaTestAutomationFramework.StepDefinations
 {
     [Binding]
     public class CheckoutSteps
     {
-        [Given(@"the customer is on the homepage of Swag Labs website")]
-        public void GivenTheCustomerIsOnTheHomepageOfSwagLabsWebsite()
-        {
-            DriverHelper.Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
-        }
-
-        [When(@"the customer logs in with valid credentials")]
+        [Given(@"the customer logs in with valid credentials")]
         public void WhenTheCustomerLogsInWithValidCredentials()
         {
             BaseDefinition.HomePage.UserNameInputBox.SendKeys("standard_user");
@@ -32,6 +27,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
             BaseDefinition.InventoryPage.AddToCartButton.Click();
             BaseDefinition.InventoryPage.CartIcon.Click();
         }
+
 
         [When(@"they proceed to checkout")]
         public void WhenTheyProceedToCheckout()
@@ -77,6 +73,36 @@ namespace HamzaTestAutomationFramework.StepDefinations
                 Assert.AreEqual(item.Price, productPrice);
             }
         }
+
+        // Scenario for Test 3
+
+        [Given(@"I enter incorrect username or password")]
+        public void GivenIEnterIncorrectUsernameOrPassword()
+        {
+            BaseDefinition.HomePage.UserNameInputBox.SendKeys("1233");
+            BaseDefinition.HomePage.PasswordInputBox.SendKeys("abc");
+            BaseDefinition.HomePage.LogInButton.Click();
+        }
+
+        [Then(@"I should see an error message")]
+        public void ThenIShouldSeeAnErrorMessage()
+        {
+            string errorMessage = BaseDefinition.HomePage.Errormessage.Text;
+            Assert.AreEqual("Epic sadface: Username and password do not match any user in this service", errorMessage);
+            //Console.WriteLine(errorMessage);
+        }
+
+        // Scenario for Test 4
+
+        [Then(@"I should successfully login")]
+        public void ThenIShouldSuccessfullyLogin()
+        {
+            string currentURL = DriverHelper.Driver.Url;
+            string expectedURL = "https://www.saucedemo.com/inventory.html";
+            Assert.AreEqual(expectedURL, currentURL);
+        }
+
+
 
 
     }
