@@ -1,6 +1,8 @@
-﻿using System;
+﻿using HamzaRizwanWebAutomationFrameWork.HelperFuntions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
@@ -58,6 +60,24 @@ namespace HamzaTestAutomationFramework.StepDefinations
             string checkoutTitle = BaseDefinition.CheckoutCompletePage.CheckoutTitle.Text;
             Assert.AreEqual("Checkout: Complete!", checkoutTitle);
         }
+
+        // Scenario 2 Tests
+
+        [Then(@"I iterate over each item in CSV file to ensure both website's and CSV file prices matches")]
+        public void ThenIIterateOverEachItemInCSVFileToEnsureBothWebsitesAndCSVFilePricesMatches()
+        {
+            const string csvFilePath = "C:\\Users\\HamzaRizwan\\source\\repos\\HamzaFrameworkUnit1\\HamzaTestAutomationFramework\\Products.csv";
+            
+            Helper helper = new Helper();
+            var productsCSVFile = helper.ReadItemsFromCSV(csvFilePath);
+
+            foreach (var item in productsCSVFile)
+            {
+                string productPrice = BaseDefinition.InventoryPage.GetProductPrice(item.Name);
+                Assert.AreEqual(item.Price, productPrice);
+            }
+        }
+
 
     }
 }

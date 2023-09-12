@@ -22,7 +22,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
         public void BeforeScenario()
         {
             DriverHelper.InitializeEdgeDriverAndStart();
-            //DriverHelper.Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+            DriverHelper.Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
 
             HomePage = new HomePage();
             CartPage = new CartPage();
