@@ -1,4 +1,6 @@
-﻿using HamzaTestAutomationFramework.PageObjectss;
+﻿using HamzaRizwanWebAutomationFrameWork.HelperFuntions;
+using HamzaTestAutomationFramework.PageObjectss;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
         public static CheckoutFormPage CheckoutFormPage;
         public static CheckoutOverviewPage CheckoutOverviewPage;
         public static CheckoutCompletePage CheckoutCompletePage;
+        public static Asserter Asserter;
 
         [BeforeScenario]
         public void BeforeScenario()
@@ -30,6 +33,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
             CheckoutFormPage = new CheckoutFormPage();
             CheckoutOverviewPage = new CheckoutOverviewPage();
             CheckoutCompletePage = new CheckoutCompletePage();
+            Asserter = new Asserter();
         }
 
         [AfterScenario]

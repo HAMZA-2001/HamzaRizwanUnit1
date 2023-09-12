@@ -54,7 +54,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
         public void ThenTheCustomerShouldSeeAndOrderConfirmationMessage()
         {
             string checkoutTitle = BaseDefinition.CheckoutCompletePage.CheckoutTitle.Text;
-            Assert.AreEqual("Checkout: Complete!", checkoutTitle);
+            BaseDefinition.Asserter.AssertAreEqual("Checkout: Complete!", checkoutTitle);
         }
 
         // Scenario 2 Tests
@@ -70,7 +70,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
             foreach (var item in productsCSVFile)
             {
                 string productPrice = BaseDefinition.InventoryPage.GetProductPrice(item.Name);
-                Assert.AreEqual(item.Price, productPrice);
+                BaseDefinition.Asserter.AssertAreEqual(item.Price, productPrice);
             }
         }
 
@@ -88,7 +88,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
         public void ThenIShouldSeeAnErrorMessage()
         {
             string errorMessage = BaseDefinition.HomePage.Errormessage.Text;
-            Assert.AreEqual("Epic sadface: Username and password do not match any user in this service", errorMessage);
+            BaseDefinition.Asserter.AssertAreEqual("Epic sadface: Username and password do not match any user in this service", errorMessage);
             //Console.WriteLine(errorMessage);
         }
 
@@ -99,7 +99,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
         {
             string currentURL = DriverHelper.Driver.Url;
             string expectedURL = "https://www.saucedemo.com/inventory.html";
-            Assert.AreEqual(expectedURL, currentURL);
+            BaseDefinition.Asserter.AssertAreEqual(expectedURL, currentURL);
         }
 
 
