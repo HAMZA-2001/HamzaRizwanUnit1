@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
+using static HamzaRizwanWebAutomationFrameWork.Utils.Settings;
 
 namespace HamzaTestAutomationFramework.StepDefinations
 {
@@ -24,7 +25,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
         [BeforeScenario]
         public void BeforeScenario()
         {
-            DriverHelper.InitializeEdgeDriverAndStart();
+            DriverHelper.InitializeDriver(browserName);
             DriverHelper.Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
 
             HomePage = new HomePage();

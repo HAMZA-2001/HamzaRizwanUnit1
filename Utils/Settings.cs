@@ -3,6 +3,6 @@
     public class Settings
     {
         public static string baseUrl;
-        public static string browserName = "Edge";
+        public static string browserName = "Chrome";
     }
 }
