@@ -1,6 +1,8 @@
-﻿using HamzaRizwanWebAutomationFrameWork;
+﻿using AventStack.ExtentReports.Gherkin.Model;
+using HamzaRizwanWebAutomationFrameWork;
 using HamzaRizwanWebAutomationFrameWork.HelperFuntions;
 using HamzaTestAutomationFramework.PageObjectss;
+using HamzaTestAutomationFramework.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ using static HamzaRizwanWebAutomationFrameWork.Utils.Settings;
 namespace HamzaTestAutomationFramework.StepDefinations
 {
     [Binding]
-    public class BaseDefinition
+    public class BaseDefinition : ExtentReport
     {
         public static HomePage HomePage;
         public static CartPage CartPage;
@@ -22,8 +24,8 @@ namespace HamzaTestAutomationFramework.StepDefinations
         public static CheckoutCompletePage CheckoutCompletePage;
         public static Asserter Asserter;
 
-        [BeforeScenario]
-        public void BeforeScenario()
+        [BeforeScenario(Order = 1)]
+        public void BeforeScenario(ScenarioContext scenarioContext)
         {
             DriverHelper.InitializeDriver(browserName);
             DriverHelper.Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
@@ -35,6 +37,8 @@ namespace HamzaTestAutomationFramework.StepDefinations
             CheckoutOverviewPage = new CheckoutOverviewPage();
             CheckoutCompletePage = new CheckoutCompletePage();
             Asserter = new Asserter();
+
+            _scenario = _feature.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
         }
 
         [AfterScenario]
