@@ -1,6 +1,6 @@
-﻿using HamzaRizwanWebAutomationFrameWork.HelperFuntions;
+﻿using HamzaRizwanWebAutomationFrameWork;
+using HamzaRizwanWebAutomationFrameWork.HelperFuntions;
 using HamzaTestAutomationFramework.PageObjectss;
-using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;

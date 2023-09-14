@@ -1,6 +1,8 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using HamzaRizwanWebAutomationFrameWork;
 using HamzaTestAutomationFramework;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -33,8 +35,8 @@ namespace HamzaRizwanWebAutomationFrameWork.HelperFuntions
         {
             Screenshot screenShot = ((ITakesScreenshot)DriverHelper.Driver).GetScreenshot();
 
-            // make it include the test name in this path
-            string filePath = $"C:\\Users\\HamzaRizwan\\OneDrive - ROQ IT\\Desktop\\Unit1FrameworkScreenshots\\FailureScreenshot {DateTime.Now.ToString("dd MMMM yyyy HH-mm-ss")}.png";
+            // TODO make it include the test name in this path
+            string filePath = $"C:\\Users\\HamzaRizwan\\source\\repos\\HamzaFrameworkUnit1\\HamzaTestAutomationFramework\\Screenshots\\FailureScreenshot {DateTime.Now.ToString("dd MMMM yyyy HH-mm-ss")}.png";
             screenShot.SaveAsFile(filePath);
             TestContext.AddTestAttachment(filePath);
         }

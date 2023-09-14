@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace HamzaRizwanWebAutomationFrameWork.HelperFuntions
     public class Asserter
     {
         public void AssertAreEqual(string expected, string actual)
-        { 
+        {
             try
             {
                 Assert.AreEqual(expected, actual);
@@ -19,7 +20,7 @@ namespace HamzaRizwanWebAutomationFrameWork.HelperFuntions
                 Helper helper = new Helper();
                 helper.TakeBrowserScreenShot();
             }
-            
+
         }
     }
 }
