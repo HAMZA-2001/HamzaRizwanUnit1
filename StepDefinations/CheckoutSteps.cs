@@ -1,5 +1,6 @@
 ﻿using HamzaRizwanWebAutomationFrameWork;
 using HamzaRizwanWebAutomationFrameWork.HelperFuntions;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,6 +101,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
         {
             string currentURL = DriverHelper.Driver.Url;
             string expectedURL = "https://www.saucedemo.com/inventory.html";
+            //Assert.AreEqual(expectedURL, currentURL) throws error;
             BaseDefinition.Asserter.AssertAreEqual(expectedURL, currentURL);
         }
 

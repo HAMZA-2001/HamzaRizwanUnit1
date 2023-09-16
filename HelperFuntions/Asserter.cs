@@ -19,6 +19,7 @@ namespace HamzaRizwanWebAutomationFrameWork.HelperFuntions
             {
                 Helper helper = new Helper();
                 helper.TakeBrowserScreenShot();
+                throw;
             }
 
         }

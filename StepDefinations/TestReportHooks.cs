@@ -76,9 +76,9 @@ namespace HamzaTestAutomationFramework.StepDefinations
             string stepType = scenarioContext.StepContext.StepInfo.StepDefinitionType.ToString();
             string stepName = scenarioContext.StepContext.StepInfo.Text;
 
-            Console.WriteLine(stepType + " " + stepName);
-            Console.WriteLine("heeeeelloooooooooooooooooooo");
-            Console.WriteLine(scenarioContext.TestError);
+           // Console.WriteLine(stepType + " " + stepName);
+            //Console.WriteLine("heeeeelloooooooooooooooooooo");
+            Console.WriteLine(scenarioContext);
             //When scenario passed
             if (scenarioContext.TestError == null)
             {
@@ -103,6 +103,7 @@ namespace HamzaTestAutomationFramework.StepDefinations
             //When scenario fail
             if (scenarioContext.TestError != null)
             {
+                Console.WriteLine("heeeeelloooooooooooooooooooo");
                 if (stepType == "Given")
                 {
                     _scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message);
